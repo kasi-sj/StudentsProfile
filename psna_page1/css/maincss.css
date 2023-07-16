@@ -1,0 +1,244 @@
+body{
+    align-items: center;
+   
+  }
+  .desktop-2, .desktop-2 * {
+     box-sizing: border-box;
+     }.desktop-2 {
+      background: #234338; 
+      width: 1440px;
+       height: 3892px;
+        position: relative; overflow: hidden;
+      }
+   .student-login {
+    position: absolute; 
+    inset: 0;
+  }
+   .rectangle-25 {
+    background: rgba(132, 161, 131, 0.40); 
+    border-radius: 27px; width: 1204px; 
+    height: 540px;
+     position: absolute;
+      left: 118px;
+      top: 1077px;
+    }
+   .c1 {
+    color: #ffffff;
+     text-align: center; font: 700 25px/60px 'Outfit', sans-serif;
+      position: absolute; left: calc(50% - 557px);top: 1236px; width: 638px; 
+      height: 222px;
+    }
+   .student-login2 {
+    color: #ffffff; text-align: left; font: 600 60px/60px 'Outfit', sans-serif; 
+    text-transform: uppercase; 
+    position: absolute; left: calc(50% - 557px);top: 1141px;
+     width: 538px; height: 134px;
+    }
+   .test-student-1 {
+    border-radius: 14px; width: 455px; height: 449px;
+     position: absolute; left: 821px;top: 1122px;
+    }
+   .rectangle-252 {
+    background: rgba(132, 161, 131, 0.40); 
+    border-radius: 27px; width: 1204px; height: 540px; 
+    position: absolute; left: 118px;top: 1711px;
+  }
+   .faculty-text {position: absolute; inset: 0;}
+  
+   .c2 {
+    color: #ffffff; text-align: center; font: 700 25px/60px 'Outfit', sans-serif;
+     position: absolute; left: calc(50% - 66px);
+     top: 1887px; width: 638px; height: 282px;
+    }
+   .faculty-login {
+    color: #ffffff; text-align: left; font: 600 60px/60px 'Outfit', sans-serif;
+     text-transform: uppercase; position: absolute; left: calc(50% - -26px);
+     top: 1792px; width: 538px; height: 134px;
+    }
+   .group-4 {position: absolute; inset: 0;}
+  
+   .c3 {color: #ffffff; text-align: center; 
+    font: 700 25px/50px 'Outfit', sans-serif; 
+    position: absolute; left: calc(50% - 560px);
+    top: 2516px; width: 265px; height: 652px;
+  }
+   .offical-videos {
+    color: #ffffff; text-align: center;
+     font: 600 40px/60px 'Outfit', sans-serif; text-transform: uppercase;
+      position: absolute; left: calc(50% - 558px);top: 2380px; 
+      width: 262px; height: 120px;
+    }
+   .group-5 {position: absolute; inset: 0;}
+  
+   .c4 {
+    color: #ffffff; text-align: center; font: 700 25px/50px 'Outfit', sans-serif; 
+    position: absolute; left: calc(50% - 275px);
+    top: 2466px; width: 262px; height: 652.27px;
+  }
+    .activity {
+      color: #ffffff; text-align: center;
+     font: 600 40px/60px 'Outfit', sans-serif; text-transform: uppercase;
+      position: absolute; left: calc(70% - 558px);top: 2380px; 
+      width: 262px; height: 120px;
+  
+  }
+  .span1 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+      }
+  .span2 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .span3 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .span4 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .span5 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .span6 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .span7 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+   .group-6 {
+    position: absolute;
+     inset: 0;
+    }
+   .Act{
+    color: #ffffff;
+     text-align: center; 
+     font: 700 25px/50px 'Outfit', sans-serif;
+    position: absolute; left: calc(50% - -7px);
+    top: 2466px; width: 262px;
+     height: 652.27px;
+    }
+  
+    .inovation {
+      color: #ffffff; text-align: center;
+     font: 600 40px/60px 'Outfit', sans-serif; text-transform: uppercase;
+      position: absolute; left: calc(90% - 558px);top: 2380px; 
+      width: 262px; height: 120px;
+  
+  }
+  
+  .a1 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+      }
+  .a2 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .a3{
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .a4 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .a5{
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .a6 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+   .frame-7 {
+    display: flex;
+     flex-direction: column; 
+     gap: 22px;
+    align-items: center; justify-content: flex-start;
+     position: absolute; left: 1004px;top: 2380px;
+    }
+   .hostel {
+    color: #ffffff;
+     text-align: center;
+      font: 700 25px/50px 'Outfit', sans-serif;
+       position: relative; width: 262px;
+        height: 652.27px;
+      }
+  .hostel1 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+      }
+  .hostel2 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .hostel3 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .hostel4 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+  .hostel5 {
+        color: #ffffff;
+        font: 700 25px/50px 'Outfit', sans-serif;
+        text-decoration: underline;
+      }
+   .test-alu-1 {
+    border-radius: 18px; 
+    width: 452px; height: 392px; 
+    position: absolute; left: 163px;
+    top: 1804px;
+  }
+   .banner-1-1 {
+    width: 1523px;
+    height: 880px; 
+    position:absolute;
+    left: -73px;
+    top: 0px;
+  }
+   .naac-grade {
+    position: absolute; 
+    inset: 0;
+  }
+   .naac-accreditation-cgpa-of-3-65 {
+    color: #ffffff; text-align: left; 
+    font: 500 51px/60px 'Outfit', sans-serif;
+     position: absolute; left: calc(50% - -101px);
+     top: 540px; width: 579px; height: 134px;
+    }
+   .naac-a-accredited {
+    color: #ffffff; text-align: left; 
+    font: 500 60px/60px 'Outfit', sans-serif; position: absolute; 
+    left: calc(50% - -101px);top: 708px; width: 579px; height: 134px;
+  }
+   .images-1 {
+    width: 112px; 
+    height: 130px; 
+    position: absolute; left: 160px;
+    top: 459px;
+  }
+  
+  .pressed{
+    background-color: black;
+  }
