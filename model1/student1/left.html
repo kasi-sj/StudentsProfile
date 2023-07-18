@@ -1,0 +1,34 @@
+<html>
+<head>
+<style>
+.links{
+display:none;
+}
+body {
+   background-color: #191970;
+     }
+a{
+color: white;
+display:block;
+margin-bottom:10px;
+text-decoration:none;
+font-size:20px;
+font-face:raleway;
+}
+</style>
+<script>
+function toggleLinks(){
+var links=document.getElementById("links");
+links.style.display=links.style.display==="none" ? "block" : "none";
+}
+</script>
+</head>
+<body>
+<center><label for ="toggle" onclick="toggleLinks()" > &nbsp;&nbsp;&nbsp;<img src="1i.jpg" width="20px" height="20px" > </label></center>
+<div id="links" class="links"><br><br>
+<a href="student.html" target="right">&nbsp;&nbsp;&nbsp;Home</a>
+<a href="sem.html" target="right" >&nbsp;&nbsp;&nbsp;Semester Details</a>
+<a href="index.html" target="_blank">&nbsp;&nbsp;&nbsp;Logout</a>
+</div>
+</body>
+</html>
