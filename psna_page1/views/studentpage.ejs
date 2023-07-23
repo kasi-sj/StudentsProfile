@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .student-profile{
+      height: 180px;
+      width:600px;
+      align-items: center;
+      border: solid;
+      border-color: black;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: row;
+    }
+    .student-dp{
+      width: 120px;
+      height: 100px;
+      
+    }
+  </style>
+</head>
+<body>
+    <div class="student-profile">
+         <div class="student-dp">
+            <img class="student-dp" src="images/test-student.jpg" alt="">
+         </div>
+         <div class="student-details">
+            <p><%= Name %></p>
+            <p><%=  Regno %></p>
+            <p><%= Degree %> <%=Branch %></p>
+            <p>Psna</p>
+          </div>
+    </div>
+    <div class="attendence">
+      <% for( let i = 0; i < Subject.length; i++ ) { %>
+        <p><%= Subject[i].S_Name %></p>
+        <p><%= Subject[i].S_Persentage %></p>
+      <% } %>
+    </div>
+</body>
+</html>
