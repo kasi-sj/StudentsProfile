@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/logincss.css">
+</head>
+<body>
+  <img src="/images/banner-1.jpg" alt="PSNA">
+  <div class="blur-background" id="login-popup">
+    <div class="login-form">
+        <span class="close-icon" id="close-login">&times;</span>
+      <h2>LogIn</h2>
+      <form action="/studentPage" method="post">
+        <label for="username">RegisterNo</label>
+        <input type="number" id="username" name="RegisterNo">
+      </br>
+        <label for="password">Password:</label>
+      
+        <input type="password" id="password" name="password">
+      </br>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+</body>
+<script>
+// Get a reference to the close icon element
+const closeIcon = document.getElementById('close-login');
+
+// Add a click event listener to the close icon
+closeIcon.addEventListener('click', () => {
+  // Redirect to another page when the close icon is clicked
+  window.location.href = 'index.html';
+});
+document.addEventListener("DOMContentLoaded", function() {
+    var loginLink = document.getElementById("login-link");
+    var loginPopup = document.getElementById("login-popup");
+    var closeLogin = document.getElementById("close-login");
+  
+    loginLink.addEventListener("click", function(event) {
+      event.preventDefault(); // Prevent the default hyperlink behavior
+      loginPopup.style.display = "flex";
+    });
+  
+    closeLogin.addEventListener("click", function() {
+      loginPopup.style.display = "none";
+    });
+  
+    loginPopup.addEventListener("click", function(event) {
+      if (event.target === loginPopup) {
+        loginPopup.style.display = "none";
+      }
+    });
+  });
+</script>
+</html>
