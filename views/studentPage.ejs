@@ -23,17 +23,19 @@
   </style>
 </head>
 <body>
+    <button type="submit" onclick="markTrans()">Marks</button>
     <div class="student-profile">
          <div class="student-dp">
             <img class="student-dp" src="../public/images/test-student.jpg" alt="">
          </div>
          <div class="student-details">
-            <p><%= Name %></p>
-            <p><%=  Regno %></p>
+            <p ><%= Name %></p>
+            <p id="reg"><%=  Regno %></p>
             <p><%= Degree %> <%=Branch %></p>
             <p>Psna</p>
           </div>
     </div>
+    
     <div class="attendence">
       <% for( let i = 0; i < Subject.length; i++ ) { %>
         <p><%= Subject[i].S_Name %></p>
@@ -41,4 +43,20 @@
       <% } %>
     </div>
 </body>
+<script>
+  async function markTrans(){
+  let regNo = document.getElementById("reg").innerText;
+  let data=new URLSearchParams();
+  data.append('text',regNo);
+  await fetch('/semMarks',{
+    method:'POST',
+    headers:{
+      'Content-Type':'application/x-www-form-urlencoded',
+    },
+    body:data.toString(),
+  });
+
+  }
+ 
+</script>
 </html>

@@ -67,8 +67,20 @@ app.post("/studentPage" , async function(req,res){
     else{
     
         const obj = await findOne(client,"StudentDetails",Number(req.body.RegisterNo));
-     
+        console.log(obj);
         res.render("studentPage.ejs" ,obj);
     
+    }
+})
+
+app.post("/semMarks/", async function(req , res){
+    console.log(req.body);
+    const obj = await findOne(client,"StudentDetails",Number(req.body.text));
+    console.log(obj);
+    res.send(obj)
+    if(obj!=null){
+        res.render("markDetails.ejs",obj);
+    }else{
+        res.sendFile(__dirname+"/html/failure.html");
     }
 })

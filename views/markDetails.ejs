@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks</title>
+</head>
+<body>
+     <select name="" id="">
+        <option value="sem1">Semester 1</option>
+        <option value="sem2">Semester 2</option>
+        <option value="sem3">Semester 3</option>
+        <option value="sem4">Semester 4</option>
+        <option value="sem5">Semester 5</option>
+        <option value="sem6">Semester 6</option>
+        <option value="sem7">Semester 7</option>
+        <option value="sem8">Semester 8</option>
+     </select>
+     <% Marks.forEach(element => { %>
+        <div>
+           Semester<%= element.SemNo %>
+        </div>
+        <% element.Marks.forEach(e => { %>
+           <p><%= e.SubCode %> <%= e.SubName%> <%= e.Grade%></p>
+        <% }) %>
+     <% }) %>
+</body>
+</html>
