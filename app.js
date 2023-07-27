@@ -25,9 +25,9 @@ async function insertOne(client , data){
     console.log(results);
 
 }
-async function findOne(client,table, username){
+async function findOne(client,table,value){
 
-    const result = await client.db("kasi").collection(table).findOne({_id:username});
+    const result = await client.db("kasi").collection(table).findOne({_id:value});
 
     return result;
 
@@ -57,30 +57,47 @@ app.get("/login",function(req,res){
 
 app.post("/studentPage" , async function(req,res){
     
-    const val = await findOne(client,"users",Number(req.body.RegisterNo));
-    
-    if(val==null || val.PassWord!=req.body.password) {
+    const val = await findOne(client,"STUDENTS",Number(req.body.RegisterNo));
+    console.log(val);
+    if(val==null || val.passWord!=req.body.password) {
     
         res.sendFile(__dirname+"/html/failure.html");
     
     }
     else{
     
-        const obj = await findOne(client,"StudentDetails",Number(req.body.RegisterNo));
+        const obj = await findOne(client,"STUDENTSDETAILS",Number(req.body.RegisterNo));
         console.log(obj);
         res.render("studentPage.ejs" ,obj);
     
     }
 })
 
-app.post("/semMarks/", async function(req , res){
+app.post("/semMarks", async function(req , res){
     console.log(req.body);
-    const obj = await findOne(client,"StudentDetails",Number(req.body.text));
+    const obj = await findOne(client,"STUDENTSDETAILS",Number(req.body.regNo));
     console.log(obj);
-    res.send(obj)
     if(obj!=null){
         res.render("markDetails.ejs",obj);
     }else{
         res.sendFile(__dirname+"/html/failure.html");
     }
 })
+
+
+//<script>
+// async function markTrans(){
+//     let regNo = document.getElementById("reg").innerText;
+//     let data=new URLSearchParams();
+//     data.append('text',regNo);
+//     await fetch('/semMarks',{
+//       method:'POST',
+//       headers:{
+//         'Content-Type':'application/x-www-form-urlencoded',
+//       },
+//       body:data.toString(),
+//     });
+  
+//     }
+   
+ // </script>

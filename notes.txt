@@ -1,0 +1,48 @@
+const obj =   {
+    _id: 921321104135,
+    name: 'muthu',
+    regNo: '921321104093',
+    degree: 'BE',
+    branch: 'CSE',
+    subject: [
+      { s_Name: 'sub1', s_Persentage: 70 },
+      { s_Name: 'sub2', s_Persentage: 75 }
+    ],
+    semesters: [
+      {
+        semNo : 1,
+        gradeList :
+        [
+          {
+          subCode : 'BS3171',
+          subName : 'Physics',
+          grade : 'A'
+          },
+          {
+            subCode : 'BS3172',
+            subName : 'Chemistry',
+            grade : 'A+'
+          },
+          {
+            subCode : 'BS3173',
+            subName : 'Matrix and Calculus',
+            grade : 'A+'
+          },
+          {
+            subCode : 'BS3174',
+            subName : 'Professional English',
+            grade : 'O'
+          },
+          {
+            subCode : 'BS3175',
+            subName : 'Python Programming and Problem Solving',
+            grade : 'A+'
+          },
+        ]
+      }
+    ]
+  }
+  const obj = {
+    _id : 921321104093,
+    passWord : "kasi@home61"
+  }

@@ -23,40 +23,27 @@
   </style>
 </head>
 <body>
-    <button type="submit" onclick="markTrans()">Marks</button>
+  <form action="/semMarks" method="post">
+    <input type="text" name="regNo" value="<%= regNo %>" hidden> 
+    <button type="submit" >Marks</button>
     <div class="student-profile">
          <div class="student-dp">
             <img class="student-dp" src="../public/images/test-student.jpg" alt="">
          </div>
          <div class="student-details">
-            <p ><%= Name %></p>
-            <p id="reg"><%=  Regno %></p>
-            <p><%= Degree %> <%=Branch %></p>
+            <p><%= name %></p>
+            <p><%= regNo %></p>
+
+            <p><%= degree %> <%= branch %></p>
             <p>Psna</p>
           </div>
     </div>
-    
+    </form>
     <div class="attendence">
-      <% for( let i = 0; i < Subject.length; i++ ) { %>
-        <p><%= Subject[i].S_Name %></p>
-        <p><%= Subject[i].S_Persentage %></p>
+      <% for( let i = 0; i < subject.length; i++ ) { %>
+        <p><%= subject[i].s_Name %></p>
+        <p><%= subject[i].s_Persentage %></p>
       <% } %>
     </div>
 </body>
-<script>
-  async function markTrans(){
-  let regNo = document.getElementById("reg").innerText;
-  let data=new URLSearchParams();
-  data.append('text',regNo);
-  await fetch('/semMarks',{
-    method:'POST',
-    headers:{
-      'Content-Type':'application/x-www-form-urlencoded',
-    },
-    body:data.toString(),
-  });
-
-  }
- 
-</script>
 </html>

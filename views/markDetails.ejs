@@ -7,21 +7,16 @@
 </head>
 <body>
      <select name="" id="">
-        <option value="sem1">Semester 1</option>
-        <option value="sem2">Semester 2</option>
-        <option value="sem3">Semester 3</option>
-        <option value="sem4">Semester 4</option>
-        <option value="sem5">Semester 5</option>
-        <option value="sem6">Semester 6</option>
-        <option value="sem7">Semester 7</option>
-        <option value="sem8">Semester 8</option>
+         <% semesters.forEach(element => { %>
+            <option value="sem<%= element.semNo %>">Semester <%= element.semNo %></option>
+         <% }) %>
      </select>
-     <% Marks.forEach(element => { %>
+     <% semesters.forEach(element => { %>
         <div>
-           Semester<%= element.SemNo %>
+           Semester<%= element.semNo %>
         </div>
-        <% element.Marks.forEach(e => { %>
-           <p><%= e.SubCode %> <%= e.SubName%> <%= e.Grade%></p>
+        <% element.gradeList.forEach(e => { %>
+           <p><%= e.subCode %> <%= e.subName%> <%= e.grade%></p>
         <% }) %>
      <% }) %>
 </body>
