@@ -83,21 +83,3 @@ app.post("/semMarks", async function(req , res){
         res.sendFile(__dirname+"/html/failure.html");
     }
 })
-
-
-//<script>
-// async function markTrans(){
-//     let regNo = document.getElementById("reg").innerText;
-//     let data=new URLSearchParams();
-//     data.append('text',regNo);
-//     await fetch('/semMarks',{
-//       method:'POST',
-//       headers:{
-//         'Content-Type':'application/x-www-form-urlencoded',
-//       },
-//       body:data.toString(),
-//     });
-  
-//     }
-   
- // </script>
