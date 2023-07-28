@@ -29,16 +29,15 @@ app.post("/profileUpload",upload.single("profilePic") ,async (req,res)=>{
     const img = fs.readFileSync(req.file.path);
     const base64 = btoa(String.fromCharCode(...img));
     var profile = {
-        _id : 5,
         type : req.file.mimetype,
         filepath : req.file.path,
         image :  base64
     }
-    // await insertOne(client , profile);
+    await updateOne(client ,921321104135, profile);
     const obj = await findOne(client,"images" ,5);
     // obj.image = obj.image.toString("base64")
-    res.render("fileRetrival.ejs",obj);
-    // res.send("hai");
+    // res.render("fileRetrival.ejs",obj);
+    res.send("hai");
 })
 
 app.get("/" , function( req, res){
@@ -54,6 +53,16 @@ const uri = "mongodb+srv://kasinathansj:kasi%40home61@cluster0.gumlfqd.mongodb.n
 // const uri = "mongodb://localhost:27017/"
 
 const client = new MongoClient(uri);
+
+async function updateOne(client,_id,img){
+    //can also use upsert => create if not exist
+    const cursor = await client.db("kasi").collection("STUDENTSDETAILS").updateOne(
+      {_id:_id},
+      {$set:{img:img}},
+      // {upsert : true}
+      );
+    console.log(cursor);
+  }
 
 async function insertOne(client , data){
   

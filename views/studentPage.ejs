@@ -28,12 +28,11 @@
     <button type="submit" >Marks</button>
     <div class="student-profile">
          <div class="student-dp">
-            <img class="student-dp" src="../public/images/test-student.jpg" alt="">
+            <img class="student-dp" src="data:<%=img.type %>;base64, <%= img.image%>" alt="">
          </div>
          <div class="student-details">
             <p><%= name %></p>
             <p><%= regNo %></p>
-
             <p><%= degree %> <%= branch %></p>
             <p>Psna</p>
           </div>

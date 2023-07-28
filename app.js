@@ -30,7 +30,6 @@ async function findOne(client,table,value){
     const result = await client.db("kasi").collection(table).findOne({_id:value});
 
     return result;
-
 }
 
 app.use(bodyparser.urlencoded({extended:true}));
