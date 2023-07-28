@@ -10,7 +10,6 @@
   <img src="/images/banner-1.jpg" alt="PSNA">
   <div class="blur-background" id="login-popup">
     <div class="login-form">
-        <span class="close-icon" id="close-login">&times;</span>
       <h2>LogIn</h2>
       <form action="/studentPage" method="post">
         <label for="username">RegisterNo</label>
@@ -27,13 +26,6 @@
 </body>
 <script>
 // Get a reference to the close icon element
-const closeIcon = document.getElementById('close-login');
-
-// Add a click event listener to the close icon
-closeIcon.addEventListener('click', () => {
-  // Redirect to another page when the close icon is clicked
-  window.location.href = 'index.html';
-});
 document.addEventListener("DOMContentLoaded", function() {
     var loginLink = document.getElementById("login-link");
     var loginPopup = document.getElementById("login-popup");
