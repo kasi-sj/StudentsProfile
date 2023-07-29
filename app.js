@@ -44,13 +44,13 @@ app.listen(3000, async function(req){
 
 app.get("/" , function( req, res){
 
-    res.sendFile(__dirname +"/html/index.html");
+    res.sendFile(__dirname +"/html/addStudent.html");
 
 })
 
 app.get("/login",function(req,res){
 
-    res.sendFile(__dirname + "/html/login.html");
+    res.sendFile(__dirname + "/html/studentLogin.html");
 
 })
 
@@ -81,4 +81,8 @@ app.post("/semMarks", async function(req , res){
     }else{
         res.sendFile(__dirname+"/html/failure.html");
     }
+})
+
+app.post("/addStudent",async function(req , res){
+    res.send(req.body);
 })

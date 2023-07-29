@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .splitBox{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+        <form action="/addStudent" method="post">
+            <div class="splitBox">
+                <h2>Basic Details</h2>
+                <input type="file" name="studentImage"  placeholder="file7t" >
+                <div class="container">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" >
+                </div>
+                <div class="container">
+                    <label for="branch">Branch:</label>
+                    <input type="text" name="branch" id="branch" >
+                </div>
+                <div class="container">
+                    <label for="degree">Degree:</label>
+                    <input type="text" name="degree" id="degree" >
+                </div>
+                <div class="container">
+                    <label for="registerNo">Register No:</label>
+                    <input type="number" name="registerNo" id="registerNo" >
+                </div>
+            </div>
+
+            <div class="splitBox">
+                <h2>Additional Details</h2>
+                <div class="container">
+                    <label for="periodOfStudy">Period of study:</label>
+                    <input type="number" name="periodOfStudy" id="periodOfStudy" >
+                </div>
+                <div class="container">
+                    <label for="dateOfPassing">Date of passing:</label>
+                    <input type="date" name="dateOfPassing" id="dateOfPassing" >
+                </div>
+                <div class="container">
+                    <label for="bloodGroup">Blood group:</label>
+                    <input type="text" name="bloodGroup" id="bloodGroup" >
+                </div>
+                <div class="container">
+                    <label for="studentMobileNo1">mobileNo1:</label>
+                    <input type="number" name="studentMobileNo1" id="studentMobileNo1" >
+                </div>
+                <div class="container">
+                    <label for="studentMobileNo2">mobileNo2:</label>
+                    <input type="number" name="studentMobileNo2" id="studentMobileNo2" >
+                </div>
+                <div class="container">
+                    <label for="studentEmail">Email:</label>
+                    <input type="email" name="studentEmail" id="studentEmail" >
+                </div>
+                <div class="container">
+                    <label for="studentAddress">Address:</label>
+                    <input type="text" name="studentAddress" id="studentAddress" >
+                </div>
+                <div class="container">
+                    <label for="religion">Religion:</label>
+                    <input type="text" name="religion" id="religion" >
+                </div>
+                <div class="container">
+                    <label for="cast">Cast:</label>
+                    <input type="text" name="cast" id="cast" >
+                </div>
+                <div class="container">
+                    <label for="dateOfBirth">Date of birth:</label>
+                    <input type="date" name="dateOfBirth" id="dateOfBirth" >
+                </div>
+            </div>
+            <div class="splitBox">
+                <h2>Parent Details</h2>
+                <div class="container">
+                    <label for="fatherName">Father name:</label>
+                    <input type="text" name="fatherName" id="fatherName" >
+                </div>
+                <div class="container">
+                    <label for="motherName">Mother name:</label>
+                    <input type="text" name="motherName" id="motherName" >
+                </div>
+                <div class="container">
+                    <label for="fatherEmail">Father email:</label>
+                    <input type="email" name="fatherEmail" id="fatherEmail" >
+                </div>
+                <div class="container">
+                    <label for="motherEmail">Mother email:</label>
+                    <input type="email" name="motherEmail" id="motherEmail" >
+                </div>
+                <div class="container">
+                    <label for="fatherMobileNo">Father mobile no:</label>
+                    <input type="number" name="fatherMobileNo" id="fatherMobileNo" >
+                </div>
+                <div class="container">
+                    <label for="motherMobileNo">Mother mobile no:</label>
+                    <input type="number" name="motherMobileNo" id="motherMobileNo" >
+                </div>
+                <div class="container">
+                    <label for="parentAddress">Parent address:</label>
+                    <input type="text" name="parentAddress" id="parentAddress" >
+                </div>
+            </div>
+            <div class="splitBox">
+                <h2>Gardian Details</h2>
+                <div class="container">
+                    <label for="gardianName">Gardian name:</label>
+                    <input type="text" name="gardianName" id="gardianName" >
+                </div>
+                <div class="container">
+                    <label for="gardianEmail">Gardian email:</label>
+                    <input type="email" name="gardianEmail" id="gardianEmail" >
+                </div>
+                <div class="container">
+                    <label for="gardianMobileNo">Gardian mobile no:</label>
+                    <input type="number" name="gardianMobileNo" id="gardianMobileNo" >
+                </div>
+                <div class="container">
+                    <label for="gardianAddress">Gardian address:</label>
+                    <input type="text" name="gardianAddress" id="gardianAddress" >
+                </div>
+            </div>
+            <div class="splitBox">
+                <h2>Cources Taken</h2>
+                <h3>SSLC</h3>
+                <div class="container">
+                    <label for="SSLC_Medium">medium:</label>
+                    <input type="text" name="SSLC_Medium" id="SSLC_Medium" >
+                    <label for="SSLC_YearOfPassing">yearOfPassing:</label>
+                    <input type="date" name="SSLC_YearOfPassing" id="SSLC_YearOfPassing" >
+                    <label for="SSLC_Institutename">institutename:</label>
+                    <input type="text" name="SSLC_Institutename" id="SSLC_Institutename" >
+                    <label for="SSLC_Mark">marks:</label>
+                    <input type="text" name="SSLC_Mark" id="SSLC_Mark" >
+                </div>
+                <h3>HSC</h3>
+                <div class="container">
+                    <label for="HSC_Medium">medium:</label>
+                    <input type="text" name="HSC_Medium" id="HSC_Medium" >
+                    <label for="HSC_YearOfPassing">yearOfPassing:</label>
+                    <input type="date" name="HSC_YearOfPassing" id="HSC_YearOfPassing" >
+                    <label for="HSC_Institutename">institutename:</label>
+                    <input type="text" name="HSC_Institutename" id="HSC_Institutename" >
+                    <label for="HSC_Marks">marks:</label>
+                    <input type="text" name="HSC_Marks" id="HSC_Marks" >
+                    <label for="HSC_Cuttoff">cuttoff:</label>
+                    <input type="text" name="HSC_Cuttoff" id="HSC_Cuttoff" >
+                </div>
+                <h3>Diplamo</h3>
+                <div class="container">
+                    <label for="diplamo_Medium">medium:</label>
+                    <input type="text" name="diplamo_Medium" id="diplamo_Medium" >
+                    <label for="diplamo_YearOfPassing">yearOfPassing:</label>
+                    <input type="date" name="diplamo_YearOfPassing" id="diplamo_YearOfPassing" >
+                    <label for="diplamo_Institutename">institutename:</label>
+                    <input type="text" name="diplamo_Institutename" id="diplamo_Institutename" >
+                    <label for="diplamo_CGPA">CGPA:</label>
+                    <input type="text" name="diplamo_CGPA" id="diplamo_CGPA" >
+                </div>
+                <h3>Degree</h3>
+                <div class="container">
+                    <label for="degree_YearOfPassing">yearOfPassing:</label>
+                    <input type="date" name="degree_YearOfPassing" id="degree_YearOfPassing" >
+                    <label for="degree_Institutename">institutename:</label>
+                    <input type="text" name="degree_Institutename" id="degree_Institutename" >
+                    <label for="degree_CGPA">CGPA:</label>
+                    <input type="text" name="degree_CGPA" id="degree_CGPA" >
+                </div>
+            </div>
+            <button type="submit">submit</button>
+        </form>
+</body>
+</html>
