@@ -1,6 +1,6 @@
 const bodyparser = require("body-parser");
 
-const xlsx = require('xlsx');
+const xlsx = require("xlsx");
 
 const multer = require("./multer");
 
@@ -28,10 +28,13 @@ const uri =
 // const uri = "mongodb://localhost:27017/"
 
 const client = new MongoClient(uri);
+
+const port = 3000;
+
 app.use(bodyparser.urlencoded({ extended: true }));
 
-app.listen(8080, async function (req) {
-  console.log("server is running0 on 4200");
+app.listen(port, async function (req) {
+  console.log(`server is running on ${port}`);
   await client.connect();
 });
 app.get("/", function (req, res) {
@@ -70,13 +73,13 @@ app.post("/studentPage", async function (req, res) {
       _id: req.body.stdMailId,
     });
     console.log(obj);
-     res.render("studentPage.ejs", obj);
+    res.render("studentPage.ejs", obj);
   }
 });
 app.post("/semMarks", async function (req, res) {
   console.log(req.body);
   const obj = await CRUD.findOne(client, "STUDENTSDETAILS", {
-    _id:req.body.stdMailId,
+    _id: req.body.stdMailId,
   });
   console.log(obj);
   if (obj != null) {
@@ -88,27 +91,30 @@ app.post("/semMarks", async function (req, res) {
 app.post("/addStudent", (req, res) => {
   res.render("addStudent.ejs", req.body);
 });
+
 app.post("/attendance", (req, res) => {
   res.sendFile(__dirname + "/html/success.html");
 });
+
 app.post("/semesterMarks", (req, res) => {
   res.sendFile(__dirname + "/html/semesterMarks.html");
 });
-app.post("/myClass", (req, res) => {
-  res.sendFile(__dirname + "/html/myClass.html");
+
+app.post("/myClass", async (req, res) => {
+  const teacherMailId = req.body.mailId;
+  const getStd = await CRUD.findOne(client, "TEACHERSDETAILS", {
+    _id: teacherMailId,
+  });
+  const students = getStd.class;
+  const studentsDetails = await CRUD.findMany(client,"STUDENTSDETAILS",{_id:{$in : students}});
+  res.render("myClass.ejs",{studentsList:studentsDetails});
 });
-app.post('/semesterSubmit',multer.upload.single("pdfData"),(req,res)=>{
-    const data1 = fs.readFileSync(req.file.path);
-   const workbook = xlsx.readFile(req.file.path);
-   const sheetName = 'Sheet7';
-// Get the sheet by name
-const sheet = workbook.Sheets[sheetName];
-// Convert the sheet to JSON format
-console.log(sheet);
- const data = xlsx.utils.sheet_to_json(sheet);
- console.log(data);
-   res.send("hi");
+
+app.post("/viewMoreStudentDetails" , async (req , res) => {
+  const record = JSON.parse(req.body.moreStudentDetails);
+  res.render("moreStudentDetails.ejs",record);
 })
+
 app.post(
   "/addStudentSubmit",
   multer.upload.single("studentImage"),
@@ -145,6 +151,11 @@ app.post(
       { _id: req.body.studentEmail },
       req.body
     );
-    res.sendFile("/html/success.html");
+    res.sendFile(__dirname+"/html/success.html");
   }
 );
+
+app.post("/semesterSubmit", multer.upload.single("pdfData"), (req, res) => {
+  const data1 = fs.readFileSync(req.file.path);
+  res.send("hi");
+});

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .studentGrid{
+          border: solid;
+          border-width: 2px;
+          border-color: black;
+          margin-left: 20px;   
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+        }
+        .studentGrid img{
+            width: 130px;
+            height: 130px;
+        }
+        .bodyDetails{
+            width: 800px;
+            margin-top: 40px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div id = 'regNo' class="studentName studentGrid">
+        <h1>STUDENT FULL DETAILS</h1>
+        <h2>Basic Details</h2>
+        <img  src="data:<%=image.type %>;base64, <%= image.binaryData%>" alt="">
+        <p>Name : <%= name %></p>
+        <p>RegNo : <%= registerNo %></p>
+        <p>Branch and Degree :<%= degree %> <%= branch %></p>
+        <h2>Additional Details</h2>
+        <p>Period of study: <%= periodOfStudy%></p>
+        <p>Date of passing: <%= dateOfPassing%></p>
+        <p>Blood group:<%= bloodGroup%></p>
+        <p>mobileNo1: <%= studentMobileNo1%></p>
+        <p>mobileNo2: <%= studentMobileNo2%></p>
+        <p>Email: <%= studentEmail%></p>
+        <p>Address: <%= studentAddress%></p>
+        <p>Religion: <%= religion%></p>
+        <p>Cast: <%= cast%></p>
+        <p>Date of birth: <%= dateOfBirth%></p>
+        <h2>Parent Details</h2>
+        <p>Father name: <%= fatherName%></p>
+        <p>Mother name: <%= motherName%></p>
+        <p>Father email: <%= fatherEmail%></p>
+        <p>Mother email: <%= motherEmail%></p>
+        <p>Father mobile no: <%= fatherMobileNo%></p>
+        <p>Mother mobile no: <%= motherMobileNo%></p>
+        <p>Parent address: <%= parentAddress%></p>
+        
+        <h2>Gardian Details</h2>
+        <p>Gardian name: <%= gardianName%></p>
+        <p>Gardian email: <%= gardianEmail%></p>
+        <p>Gardian mobile no:<%= gardianMobileNo%></p>
+        <p>Gardian address:<%= gardianAddress%></p>
+
+        <h2>Cources Taken</h2>
+        <h3>SSLC</h3>
+        <p>Medium : <%= SSLC_Medium %></p>
+        <p>Year of passing : <%= SSLC_YearOfPassing %></p>
+        <p>Institutename : <%=  SSLC_Institutename %></p>
+        <p>Mark : <%=  SSLC_Mark %></p>
+        <h3>HSC</h3>
+        <p>Medium : <%= HSC_Medium %></p>
+        <p>Year of passing : <%= HSC_YearOfPassing %></p>
+        <p>Institutename : <%= HSC_Institutename %></p>
+        <p>Mark : <%= HSC_Marks %></p>
+        <p>Cuttoff : <%= HSC_Cuttoff %></p>
+        
+        <h3>Diplamo</h3>
+        <p>Medium :<%= diplamo_Medium %></p>
+        <p>YearOfpassing : <%= degree_YearOfPassing %></p>
+        <p>Institutename : <%= degree_Institutename %></p>
+        <p>CGPA : <%= diplamo_CGPA %></p>
+
+        <h3>Degree</h3>
+        <p>Branch : <%= degree_Branch %></p>
+        <p>YearOfpassing : <%= degree_YearOfPassing %></p>
+        <p>Institutename : <%= degree_Institutename %></p>
+        <p>CGPA : <%= degree_CGPA %></p>
+    </div>
+</body>
+</html>

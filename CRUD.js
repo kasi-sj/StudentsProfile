@@ -61,18 +61,18 @@ async function updateMany(client,table,query,data) {
    return result;
 }
 
-async function deleteOne(client, query) {
+async function deleteOne(client,table, query) {
   const result = await client
     .db("kasi")
-    .collection("product")
+    .collection(table)
     .deleteOne(query);
   return result;
 }
 
-async function deleteMany(client,query) {
+async function deleteMany(client,table,query) {
   const result = await client
     .db("kasi")
-    .collection("product")
+    .collection(table)
     .deleteMany(query);
   return result;
 }
