@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+        .body-details{
+            border: solid;
+            border-width: 1px;
+            border-color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="body-details">
+        <form action="/addStudent" method="post">
+           <input type="text" name="mailId" value="<%=_id%>" hidden>
+           <input type="submit" value="add student">
+        </form>
+        <form action="/myClass" method="post">
+            <input type="submit" value="my class">
+        </form>
+        <form action="/attendance" method="post">
+            <input type="submit" value="attendance">
+        </form>
+        <form action="/semesterMarks" method="post">
+            <input type="submit" value="semester marks">
+        </form>
+        <div class="header">
+            <img src="images/images.png">
+            <p><%= name %></p>
+            <p><%= department %></p>
+            <p>Psna</p>
+        </div>
+        <div class="footer">
+          <h1>FOOTER HERE</h1>
+        </div>
+    </div>
+  </body>
+</html>

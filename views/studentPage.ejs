@@ -24,25 +24,27 @@
 </head>
 <body>
   <form action="/semMarks" method="post">
-    <input type="text" name="regNo" value="<%= regNo %>" hidden> 
+    <input type="text" name="stdMailId" value="<%= studentEmail %>" hidden> 
     <button type="submit" >Marks</button>
     <div class="student-profile">
          <div class="student-dp">
-            <img class="student-dp" src="data:<%=img.type %>;base64, <%= img.image%>" alt="">
+            <img class="student-dp" src="data:<%=image.type %>;base64, <%= image.binaryData%>" alt="">
          </div>
          <div class="student-details">
             <p><%= name %></p>
-            <p><%= regNo %></p>
+            <p><%= registerNo %></p>
             <p><%= degree %> <%= branch %></p>
             <p>Psna</p>
           </div>
     </div>
     </form>
     <div class="attendence">
+      <% if(locals.subject){ %>
       <% for( let i = 0; i < subject.length; i++ ) { %>
         <p><%= subject[i].s_Name %></p>
         <p><%= subject[i].s_Persentage %></p>
       <% } %>
+      <% }%>
     </div>
 </body>
 </html>

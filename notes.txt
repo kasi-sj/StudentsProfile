@@ -64,8 +64,6 @@ const obj =   {
     _id : 921321104093,
     passWord : "kasi@home61"
   }
-
-
 data to be getting
   {
     "studentImage": "Untitled.png",

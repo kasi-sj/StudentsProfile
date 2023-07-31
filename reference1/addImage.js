@@ -34,7 +34,7 @@ app.post("/profileUpload",upload.single("profilePic") ,async (req,res)=>{
     PDFParser(img).then(function(data) {
         console.log(data.text);
     });
-    // const base64 = btoa(String.fromCharCode(...img));
+     const base64 = btoa(String.fromCharCode(...img));
     // var profile = {
     //     type : req.file.mimetype,
     //     filepath : req.file.path,

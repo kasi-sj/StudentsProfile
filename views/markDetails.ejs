@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Marks</title>
-</head>
-<body>
-     <select name="" id="">
-         <% semesters.forEach(element => { %>
-            <option value="sem<%= element.semNo %>">Semester <%= element.semNo %></option>
-         <% }) %>
-     </select>
-     <% semesters.forEach(element => { %>
-        <div>
-           Semester<%= element.semNo %>
-        </div>
-        <% element.gradeList.forEach(e => { %>
-           <p><%= e.subCode %> <%= e.subName%> <%= e.grade%></p>
-        <% }) %>
-     <% }) %>
-</body>
+  </head>
+  <body>
+    <select name="" id="">
+      <% if(locals.semesters){ %> <% semesters.forEach(element => { %>
+      <option value="sem<%= element.semNo %>">
+        Semester <%= element.semNo %>
+      </option>
+      <% }) %> <% } %>
+    </select>
+    <% if(locals.semesters){ %> <% semesters.forEach(element => { %>
+    <div>Semester<%= element.semNo %></div>
+    <% element.gradeList.forEach(e => { %>
+    <p><%= e.subCode %> <%= e.subName%> <%= e.grade%></p>
+    <% }) %> <% }) %> <% }%>
+  </body>
 </html>
