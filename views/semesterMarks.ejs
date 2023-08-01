@@ -7,6 +7,7 @@
 </head>
 <body>
     <form action="/semesterSubmit" method="post" enctype="multipart/form-data">
+        <input type="text" name="mailId" value="<%= mailId %>" hidden>
         <input type="file" name="pdfData">
         <input type="submit">
     </form>

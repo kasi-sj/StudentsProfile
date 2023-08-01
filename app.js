@@ -1,6 +1,6 @@
 const bodyparser = require("body-parser");
 
-const xlsx = require("xlsx");
+const xlsx = require("./xlsxHandler");
 
 const multer = require("./multer");
 
@@ -97,7 +97,8 @@ app.post("/attendance", (req, res) => {
 });
 
 app.post("/semesterMarks", (req, res) => {
-  res.sendFile(__dirname + "/html/semesterMarks.html");
+  console.log(req.body);
+  res.render("semesterMarks.ejs",req.body);
 });
 
 app.post("/myClass", async (req, res) => {
@@ -155,7 +156,24 @@ app.post(
   }
 );
 
-app.post("/semesterSubmit", multer.upload.single("pdfData"), (req, res) => {
-  const data1 = fs.readFileSync(req.file.path);
-  res.send("hi");
+app.post("/semesterSubmit", multer.upload.single("pdfData"), async (req, res) => {
+  var data  = xlsx.xlsxHandler(req);
+  list = []
+  const teacherMailId = req.body.mailId;
+  const getStd = await CRUD.findOne(client, "TEACHERSDETAILS", {
+    _id: teacherMailId,
+  });
+  const students = getStd.class;
+  console.log(getStd.class);
+  data.forEach(ele=>{
+    var temp = {};
+    temp.RegNumber = ele.RegNumber;
+    temp.Semester =  ele.Semester;
+    delete ele.Semester;
+    delete ele.RegNumber;
+    delete ele.StudName;
+    temp.grade = ele;
+    list.push(temp);
+  })
+  res.send(list);
 });
