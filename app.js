@@ -158,22 +158,48 @@ app.post(
 
 app.post("/semesterSubmit", multer.upload.single("pdfData"), async (req, res) => {
   var data  = xlsx.xlsxHandler(req);
-  list = []
   const teacherMailId = req.body.mailId;
   const getStd = await CRUD.findOne(client, "TEACHERSDETAILS", {
     _id: teacherMailId,
   });
   const students = getStd.class;
-  console.log(getStd.class);
+  const studentsDetails = await CRUD.findMany(client,"STUDENTSDETAILS",{_id:{$in : students}});
+  const map = new Map();
+  var list = []
   data.forEach(ele=>{
+    const registerNo = ele.registerNo;
     var temp = {};
-    temp.RegNumber = ele.RegNumber;
-    temp.Semester =  ele.Semester;
-    delete ele.Semester;
-    delete ele.RegNumber;
+    delete ele.semester;
+    delete ele.registerNo;
     delete ele.StudName;
-    temp.grade = ele;
-    list.push(temp);
+    temp.gradeList = ele;
+    map.set(Number(registerNo) , temp);
   })
-  res.send(list);
+  const ext = path.extname(req.file.originalname)
+  const fileName = (req.file.originalname).replace(ext,"")
+  console.log(fileName)
+  studentsDetails.forEach(async (ele)=>{
+    if(map.has(Number(ele.registerNo))){
+      const studentGrades = (map.get(Number(ele.registerNo)).gradeList)
+      const studentToUpdate = ele;
+      if(studentToUpdate.semester==null){
+        studentToUpdate.semester = {}
+      }
+      if(!studentToUpdate.semester.hasOwnProperty(fileName)){
+        studentToUpdate.semester[fileName] = {}
+      }
+      // var obj = studentToUpdate.semester[fileName]
+      (Object.entries(studentGrades)).forEach(ele=>{
+        studentToUpdate.semester[fileName][ele[0]] = ele[1]
+      })
+      console.log(studentToUpdate.semester);
+      await CRUD.updateOne(
+        client,
+        "STUDENTSDETAILS",
+        {registerNo:ele.registerNo},
+        studentToUpdate
+      )
+    }
+  });
+  res.sendFile(__dirname+"/html/success.html");
 });

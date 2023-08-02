@@ -7,16 +7,19 @@
   </head>
   <body>
     <select name="" id="">
-      <% if(locals.semesters){ %> <% semesters.forEach(element => { %>
-      <option value="sem<%= element.semNo %>">
-        Semester <%= element.semNo %>
+      <% if(locals.semester){ %>
+      <% for ( let [key , values] of (Object.entries(semester))){ %>
+      <option value="sem<%= key %>">
+        Semester <%= key %>
       </option>
-      <% }) %> <% } %>
+      <% } %> <% } %>
     </select>
-    <% if(locals.semesters){ %> <% semesters.forEach(element => { %>
-    <div>Semester<%= element.semNo %></div>
-    <% element.gradeList.forEach(e => { %>
-    <p><%= e.subCode %> <%= e.subName%> <%= e.grade%></p>
-    <% }) %> <% }) %> <% }%>
+    <% if(locals.semester){ %>
+      <% for ( let [key , values] of (Object.entries(semester))){ %>
+       <h2> Semester <%= key %> </h2>
+        <% for( let [code , grades] of (Object.entries(values))){  %>
+            <p> <%= code  %> => <%= grades %></p>
+        <% } %>
+      <% } %> <% } %>
   </body>
 </html>
