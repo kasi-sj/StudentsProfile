@@ -1,50 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title></title>
   <style>
-    .student-profile{
-      height: 180px;
-      width:600px;
-      align-items: center;
-      border: solid;
-      border-color: black;
+    .first{
+      background-color: black;
+      height: 100vh;
       display: flex;
-      justify-content: space-evenly;
-      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
-    .student-dp{
-      width: 120px;
-      height: 100px;
-      
+    #img{
+      border-radius: 50%;
+    }
+    .bottom{
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      border-style: solid ;
+      border-radius: 10px;
+      border-color: rgb(238, 133, 133);
+      background-color: white;
+      width: 350px;
+    }
+    .name{
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <form action="/semMarks" method="post">
-    <input type="text" name="stdMailId" value="<%= studentEmail %>" hidden> 
-    <button type="submit" >Marks</button>
-    <div class="student-profile">
-         <div class="student-dp">
-            <img class="student-dp" src="data:<%=image.type %>;base64, <%= image.binaryData%>" alt="">
-         </div>
-         <div class="student-details">
-            <p><%= name %></p>
-            <p><%= registerNo %></p>
-            <p><%= degree %> <%= branch %></p>
-            <p>Psna</p>
-          </div>
+  <div class="first">
+    <div class="top" style="z-index: 2;">
+      <div class="imageClip" >
+        <img id="img" src="data:<%=image.type %>;base64, <%= image.binaryData%>" style="width: 150px; object-fit: cover; height:150px ;" alt="">
+      </div>
     </div>
-    </form>
-    <div class="attendence">
-      <% if(locals.subject){ %>
-      <% for( let i = 0; i < subject.length; i++ ) { %>
-        <p><%= subject[i].s_Name %></p>
-        <p><%= subject[i].s_Persentage %></p>
-      <% } %>
-      <% }%>
+    <div class="bottom" style="position: relative; top: -75px">
+      <div style="height: 40px;">
+      </div>
+      <div class="name">
+        <p><strong>Name : </strong><%= name %></p>
+      </div>
+      <div class="name">
+        <p><strong>Register Number </strong>  : <%= registerNo %></p>
+      </div>
+      <div class="name">
+        <p><strong>Degree </strong>  : <%= degree %> </p>
+      </div>
+      <div class="name">
+        <p><strong>Branch </strong>  : <%= branch %></p>
+      </div>
+      <div class="name">
+        <p><strong>college </strong>  : PSNACET</p>
+      </div>
+      <div class="name">
+        <form action="/semMarks" method="post" >
+          <input type="text" name="stdMailId" value="<%= studentEmail %>" hidden> 
+          <button type="submit" class="button">Marks</button>
+        </form>
+      </div>
     </div>
+  </div>
 </body>
 </html>

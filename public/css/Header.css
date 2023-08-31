@@ -1,0 +1,15 @@
+header{
+    padding: 25px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    align-items: center;
+    background-color: rgba(0,0,0,.9);
+}
+.flex-header{
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,17 @@
+footer{
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+    /* position: absolute;s 0; */
+    padding: 25px;
+}
+footer img{
+    width: 40px;
+    object-fit: cover;
+    cursor: pointer;
+}
+.flex-footer{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}

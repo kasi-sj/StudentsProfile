@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marks</title>
-  </head>
-  <body>
-    <select name="" id="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Result Page</title>
+  <script>
+    
+  </script>
+  <style>
+    body {
+     
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+    .table {
+      margin-top: 20px;
+    }
+    
+  </style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <form class="container">
       <% if(locals.semester){ %>
-      <% for ( let [key , values] of (Object.entries(semester))){ %>
-      <option value="sem<%= key %>">
-        Semester <%= key %>
-      </option>
-      <% } %> <% } %>
-    </select>
-    <% if(locals.semester){ %>
-      <% for ( let [key , values] of (Object.entries(semester))){ %>
-       <h2> Semester <%= key %> </h2>
-        <% for( let [code , grades] of (Object.entries(values))){  %>
-            <p> <%= code  %> => <%= grades %></p>
+        <% for ( let [key , values] of (Object.entries(semester))){ %>
+          <fieldset class="form-group border p-3">
+            <legend class="w-auto px-2">Semester <%= key %></legend>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr><th>Subject Code</th><th>Grade</th></tr>
+                    </thead>
+                    <tbody>
+                      <% for( let [code , grades] of (Object.entries(values))){  %>
+                        <tr><td><%= code  %></td><td><%= grades %></td></tr>
+                    <% } %>
+                    </tbody>
+                </table>
+        </fieldset>
         <% } %>
-      <% } %> <% } %>
-  </body>
+       <% } %>  
+    </form>
+</body>
 </html>

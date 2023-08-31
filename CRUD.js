@@ -1,5 +1,3 @@
-const { ReturnDocument } = require("mongodb");
-
 async function listDBS(client) {
   const list = await client.db().admin().listDatabases();
   list.databases.forEach((element) => {

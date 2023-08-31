@@ -8,13 +8,9 @@ const CRUD = require("./CRUD");
 
 const express = require("express");
 
-const pdfParser = require("pdf-parse");
-
 const fs = require("fs");
 
 const app = express();
-
-const https = require("https");
 
 const path = require("path");
 
@@ -37,21 +33,23 @@ app.listen(port, async function (req) {
   console.log(`server is running on ${port}`);
   await client.connect();
 });
+
 app.get("/", function (req, res) {
   res.sendFile(__dirname + "/html/homePage.html");
 });
+
 app.get("/studentLogin", function (req, res) {
   res.sendFile(__dirname + "/html/studentLogin.html");
 });
+
 app.get("/facultyLogin", function (req, res) {
   res.sendFile(__dirname + "/html/facultyLogin.html");
 });
+
 app.post("/facultyPage", async function (req, res) {
   const obj = await CRUD.findOne(client, "TEACHERS", {
     _id: req.body.facultyMailId,
   });
-  console.log(obj);
-  console.log(req.body);
   if (obj != null && obj.passWord === req.body.facultyPassword) {
     const facultyProfile = await CRUD.findOne(client, "TEACHERSDETAILS", {
       _id: req.body.facultyMailId,
@@ -61,43 +59,85 @@ app.post("/facultyPage", async function (req, res) {
     res.sendFile(__dirname + "/html/failure.html");
   }
 });
+
 app.post("/studentPage", async function (req, res) {
   const val = await CRUD.findOne(client, "STUDENTS", {
     _id: req.body.stdMailId,
   });
-  console.log(val);
+
   if (val == null || val.passWord != req.body.stdPassword) {
     res.sendFile(__dirname + "/html/failure.html");
   } else {
     const obj = await CRUD.findOne(client, "STUDENTSDETAILS", {
       _id: req.body.stdMailId,
     });
-    console.log(obj);
     res.render("studentPage.ejs", obj);
   }
 });
+
 app.post("/semMarks", async function (req, res) {
-  console.log(req.body);
   const obj = await CRUD.findOne(client, "STUDENTSDETAILS", {
     _id: req.body.stdMailId,
   });
-  console.log(obj);
   if (obj != null) {
     res.render("markDetails.ejs", obj);
   } else {
     res.sendFile(__dirname + "/html/failure.html");
   }
 });
+
 app.post("/addStudent", (req, res) => {
   res.render("addStudent.ejs", req.body);
 });
+
+app.post(
+  "/addStudentSubmit",
+  multer.upload.single("studentImage"),
+  async function (req, res) {
+    res.send(req.body);
+    // var img = fs.readFileSync(req.file.path);
+    // const base64 = btoa(String.fromCharCode(...img));
+    // var pic = {
+    //   type: req.file.mimetype,
+    //   path: req.file.path,
+    //   binaryData: base64,
+    // };
+    // var getStd = await CRUD.findOne(client, "TEACHERSDETAILS", {
+    //   _id: req.body.mailId,
+    // });
+    // if (getStd.class.indexOf(req.body.studentEmail) === -1) {
+    //   getStd.class.push(req.body.studentEmail);
+    // }
+    // const result = await CRUD.updateOne(
+    //   client,
+    //   "TEACHERSDETAILS",
+    //   { _id: req.body.mailId },
+    //   getStd
+    // );
+
+    // await CRUD.updateOne(
+    //   client,
+    //   "STUDENTS",
+    //   { _id: req.body.studentEmail },
+    //   { _id: req.body.studentEmail, passWord: req.body.dateOfBirth }
+    // );
+    
+    // req.body.image = pic;
+    // await CRUD.updateOne(
+    //   client,
+    //   "STUDENTSDETAILS",
+    //   { _id: req.body.studentEmail },
+    //   req.body
+    // );
+    // res.sendFile(__dirname+"/html/success.html");
+  }
+);
 
 app.post("/attendance", (req, res) => {
   res.sendFile(__dirname + "/html/success.html");
 });
 
 app.post("/semesterMarks", (req, res) => {
-  console.log(req.body);
   res.render("semesterMarks.ejs",req.body);
 });
 
@@ -112,49 +152,10 @@ app.post("/myClass", async (req, res) => {
 });
 
 app.post("/viewMoreStudentDetails" , async (req , res) => {
-  const record = JSON.parse(req.body.moreStudentDetails);
+  const record = await CRUD.findOne(client,"STUDENTSDETAILS",{_id:req.body.studentEmail});
   res.render("moreStudentDetails.ejs",record);
 })
 
-app.post(
-  "/addStudentSubmit",
-  multer.upload.single("studentImage"),
-  async function (req, res) {
-    var img = fs.readFileSync(req.file.path);
-    const base64 = btoa(String.fromCharCode(...img));
-    var pic = {
-      type: req.file.mimetype,
-      path: req.file.path,
-      binaryData: base64,
-    };
-    var getStd = await CRUD.findOne(client, "TEACHERSDETAILS", {
-      _id: req.body.mailId,
-    });
-    if (getStd.class.indexOf(req.body.studentEmail) === -1) {
-      getStd.class.push(req.body.studentEmail);
-    }
-    const result = await CRUD.updateOne(
-      client,
-      "TEACHERSDETAILS",
-      { _id: req.body.mailId },
-      getStd
-    );
-    await CRUD.updateOne(
-      client,
-      "STUDENTS",
-      { _id: req.body.studentEmail },
-      { _id: req.body.studentEmail, passWord: req.body.dateOfBirth }
-    );
-    req.body.image = pic;
-    await CRUD.updateOne(
-      client,
-      "STUDENTSDETAILS",
-      { _id: req.body.studentEmail },
-      req.body
-    );
-    res.sendFile(__dirname+"/html/success.html");
-  }
-);
 
 app.post("/semesterSubmit", multer.upload.single("pdfData"), async (req, res) => {
 

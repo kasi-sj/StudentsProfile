@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Class</title>
-    <style>
-        .studentGrid{
-          border: solid;
-          border-width: 2px;
-          border-color: black;
-          margin-left: 20px;   
-          display: flex;
-          align-items: flex-start;
-          flex-direction: column;
-        }
-        .studentGrid img{
-            width: 130px;
-            height: 130px;
-        }
-        .bodyDetails{
-            width: 800px;
-            margin-top: 40px;
-            
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Example</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap; /* Enable wrapping */
+  justify-content: space-around;
+  align-items: flex-start; /* Align items at the top */
+  background-color: #f0f0f0;
+  padding: 10px; /* Add padding to container for space between rows */
+}
+
+.flex-item {
+  flex-basis: calc(20% - 20px); /* Set fixed width for each flex item */
+  /* flex-grow: 1; Allow flex items to grow in height */
+  margin: 10px; /* Add margin for space between flex items */
+  padding: 20px;
+  background-color: #3498db;
+  color: white;
+  text-align: center;
+}
+img {
+  border-radius: 50%;
+  width:150px;
+  height: 150px;
+}
+/* @media screen and (max-width: 768px) {
+  .flex-item {
+    flex-basis: calc(50% - 20px);
+  }
+} */
+
+/* @media screen and (max-width: 480px) {
+  .flex-item {
+    flex-basis: 100%;
+  }
+} */
+</style>
 </head>
 <body>
     <div class="header">
-       <input type="search" name="searchedStudent" id="searchBar">
-       <input type="button" name="searchButton">
+        <input type="search" name="searchedStudent" id="searchBar">
+        <input type="button" name="searchButton">
+     </div>
+     
+  <div class="flex-container">
+    <% studentsList.forEach(element => { %>
+    <form action="/viewMoreStudentDetails" method="post">
+      <div class="flex-item">
+        <img  src="data:<%= element.image.type %>;base64, <%= element.image.binaryData%>" alt="">
+      <p><%= element.name %></p>
+      <p><%= element.registerNo %></p>
+      <p><%= element.degree %>-<%= element.branch %></p>
+      <input type="text" value="<%= element.studentEmail %>" name= "studentEmail" hidden>
+      <button type="submit">View more...</button>
     </div>
-    <div class="bodyDetails">
-        <% studentsList.forEach(element => { %>
-            <form action="/viewMoreStudentDetails" method="post">
-            <div id = 'regNo' class="studentName studentGrid">
-                <img  src="data:<%=element.image.type %>;base64, <%= element.image.binaryData%>" alt="">
-                <p>Name : <%= element.name %></p>
-                <p>RegNo : <%= element.registerNo %></p>
-                <p><%= element.degree %> <%= element.branch %></p>
-                <input type="text" value="<%= JSON.stringify(element) %>" name= "moreStudentDetails" hidden>
-                <button type="submit">View more...</button>
-             </div>
-            </form>
-        <% }) %>
-    </div>
+    </form>
+    <% }) %>
 </body>
 </html>

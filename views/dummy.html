@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #first{
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .top{
+      position: relative;
+    }
+    .dis{
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="top">
+  <div id="first">
+    <img id="n0" src="../public/images/1494915589phpiDzgg8.png" width="500px" height="500px" style="object-fit: cover;" alt="" srcset="">
+    <img id="n1" class="dis" src="../public/images/images.png" width="500px" height="500px" style="object-fit: cover;" alt="" srcset="">
+    <img id="n2" class="dis" src="../public/images/Untitled.png" width="500px" height="500px" style="object-fit: cover;" alt="" srcset="">
+  </div>
+</div>
+<script>
+  var no = 0;
+  var first = document.getElementById("first");
+  first.addEventListener('click',()=>{
+    var img1 = document.getElementById("n"+no);
+    img1.classList.add("dis");
+    no++;
+    no%=3;
+    var img1 = document.getElementById("n"+no);
+    img1.classList.remove("dis");
+  })
+</script>
+</body>
+</html>
