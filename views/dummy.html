@@ -1,44 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    #first{
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .top{
-      position: relative;
-    }
-    .dis{
-      display: none;
-    }
 
-  </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <style>
+        #topimg {
+            height: 100px;
+            width: 100px;
+            border-radius: 2000px;
+            object-fit: contain;
+            border: 2px solid black;
+        }
+
+        .key-value-pair {
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            padding-left: 100px;
+        }
+
+        .key {
+            width: 200px;
+            text-align: left;
+            padding-right: 10px;
+            padding-left: 10px;
+        }
+
+        .colon {
+            margin: 0;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="top">
-  <div id="first">
-    <img id="n0" src="../public/images/1494915589phpiDzgg8.png" width="500px" height="500px" style="object-fit: cover;" alt="" srcset="">
-    <img id="n1" class="dis" src="../public/images/images.png" width="500px" height="500px" style="object-fit: cover;" alt="" srcset="">
-    <img id="n2" class="dis" src="../public/images/Untitled.png" width="500px" height="500px" style="object-fit: cover;" alt="" srcset="">
-  </div>
-</div>
-<script>
-  var no = 0;
-  var first = document.getElementById("first");
-  first.addEventListener('click',()=>{
-    var img1 = document.getElementById("n"+no);
-    img1.classList.add("dis");
-    no++;
-    no%=3;
-    var img1 = document.getElementById("n"+no);
-    img1.classList.remove("dis");
-  })
-</script>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center" style="border: 2px solid;">
+                    <img id="topimg" src="/public/images/images.png" alt="Title">
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6 " style="border: 2px solid;">
+                    <div class="key-value-pair">
+                        <label class="key" for="name">Name</label>
+                        <span class="colon">:</span>
+                        <label id="name">kasinathan</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="dob">DOB</label>
+                        <span class="colon">:</span>
+                        <label id="dob">18/3/2004</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="branch">Branch</label>
+                        <span class="colon">:</span>
+                        <label id="branch">cse</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="degree">Degree</label>
+                        <span class="colon">:</span>
+                        <label id="degree">be</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="regNumber">Register number</label>
+                        <span class="colon">:</span>
+                        <label id="regNumber">921321104093</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;">
+                    <div class="key-value-pair">
+                        <label class="key" for="periodOfStudy">Period of study</label>
+                        <span class="colon">:</span>
+                        <label id="periodOfStudy">""</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="dateOfPassing">Date of passing</label>
+                        <span class="colon">:</span>
+                        <label id="dateOfPassing">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="bloodGroup">Blood group</label>
+                        <span class="colon">:</span>
+                        <label id="bloodGroup">""</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="religion">Religion</label>
+                        <span class="colon">:</span>
+                        <label id="religion">""</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="caste">Caste</label>
+                        <span class="colon">:</span>
+                        <label id="caste">""</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;">
+                    <div class="key-value-pair">
+                        <label class="key" for="mobileNo1">Mobile no1</label>
+                        <span class="colon">:</span>
+                        <label id="mobileNo1">1233467899</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="mobileNo2">Mobile no2</label>
+                        <span class="colon">:</span>
+                        <label id="mobileNo2">1228999988</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="email">Email id</label>
+                        <span class="colon">:</span>
+                        <label id="email">""</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="address">Address</label>
+                        <span class="colon">:</span>
+                        <label id="address">""</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;">
+                    <div class="key-value-pair">
+                        <label class="key" for="fatherName">Father name</label>
+                        <span class="colon">:</span>
+                        <label id="fatherName">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="motherName">Mother name</label>
+                        <span class="colon">:</span>
+                        <label id="motherName">""</label>
+                    </div>
+                    <div class="key-value-pair">
+                        <label class="key" for="fatherMobile">Father's mobile no</label>
+                        <span class="colon">:</span>
+                        <label id="fatherMobile">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="motherMobile">Mother's mobile no</label>
+                        <span class="colon">:</span>
+                        <label id="motherMobile">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="parentAddress">Parent address</label>
+                        <span class="colon">:</span>
+                        <label id="parentAddress">""</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;">
+                    <div class="key-value-pair">
+                        <label class="key" for="guardianName">Guardian name</label>
+                        <span class="colon">:</span>
+                        <label id="guardianName">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="guardianEmail">Guardian's email</label>
+                        <span class="colon">:</span>
+                        <label id="guardianEmail">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="guardianMobile">Guardian's mobile no</label>
+                        <span class="colon">:</span>
+                        <label id="guardianMobile">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="guardianAddress">Guardian address</label>
+                        <span class="colon">:</span>
+                        <label id="guardianAddress">""</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;">
+                    <div class="key-value-pair">
+                        <label class="key" for="sslcMedium">Medium</label>
+                        <span class="colon">:</span>
+                        <label id="sslcMedium">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="sslcYear">Year of passing</label>
+                        <span class="colon">:</span>
+                        <label id="sslcYear">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="sslcInstitution">Institution name</label>
+                        <span class="colon">:</span>
+                        <label id="sslcInstitution">""</label>
+                    </div>
+
+                    <div class="key-value-pair">
+                        <label class="key" for="sslcMarks">Marks</label>
+                        <span class="colon">:</span>
+                        <label id="sslcMarks">""</label>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;"><div class="key-value-pair">
+                    <label class="key" for="hscMedium">Medium</label>
+                    <span class="colon">:</span>
+                    <label id="hscMedium">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="hscYear">Year of passing</label>
+                    <span class="colon">:</span>
+                    <label id="hscYear">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="hscInstitution">Institution name</label>
+                    <span class="colon">:</span>
+                    <label id="hscInstitution">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="hscMarks">Marks</label>
+                    <span class="colon">:</span>
+                    <label id="hscMarks">""</label>
+                  </div>
+                  <div class="key-value-pair">
+                    <label class="key" for="hscCutoff">Cut Off</label>
+                    <span class="colon">:</span>
+                    <label id="hscCutoff">""</label>
+                  </div>
+                  </div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;"><div class="key-value-pair">
+                    <label class="key" for="diplomaMedium">Medium</label>
+                    <span class="colon">:</span>
+                    <label id="diplomaMedium">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="diplomaYear">Year of passing</label>
+                    <span class="colon">:</span>
+                    <label id="diplomaYear">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="diplomaMark">Mark</label>
+                    <span class="colon">:</span>
+                    <label id="diplomaMark">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="diplomaCgpa">CGPA</label>
+                    <span class="colon">:</span>
+                    <label id="diplomaCgpa">""</label>
+                  </div></div>
+                <div class="col-12 col-sm-12 col-md-6 col-lg-6" style="border: 2px solid;"><div class="key-value-pair">
+                    <label class="key" for="degreeBranch">Branch</label>
+                    <span class="colon">:</span>
+                    <label id="degreeBranch">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="degreeYear">Year of passing</label>
+                    <span class="colon">:</span>
+                    <label id="degreeYear">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="degreeInstitution">Institute name</label>
+                    <span class="colon">:</span>
+                    <label id="degreeInstitution">""</label>
+                  </div>
+                  
+                  <div class="key-value-pair">
+                    <label class="key" for="degreeCgpa">CGPA</label>
+                    <span class="colon">:</span>
+                    <label id="degreeCgpa">""</label>
+                  </div></div>
+            </div>
+
+    </header>
 </body>
+
 </html>
